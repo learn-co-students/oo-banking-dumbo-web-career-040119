@@ -1,6 +1,6 @@
 require_relative 'bank_account'
 class Transfer
-	
+
 	attr_accessor :sender, :receiver, :amount, :status, :counter
 
 	def initialize(sender,receiver,amount)
@@ -9,9 +9,8 @@ class Transfer
 		@amount = amount
 		@status = 'pending'
 		@counter = 1
-		#binding.pry
 	end
-	
+
 	def valid?
 		sender.valid? && receiver.valid?
 	end
@@ -25,7 +24,7 @@ class Transfer
         			sender.balance -= amount
         			self.status = 'complete'
 				@counter -= 1
-				
+
 			else
 				self.status = 'rejected'
         			"Transaction rejected. Please check your account balance."
