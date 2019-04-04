@@ -31,6 +31,7 @@ class Transfer
   def execute_transaction
       if self.status == "pending" && self.status != "rejected" && self.sender.balance >= self.amount
         self.transaction
+            binding.pry
         self.status = "complete"
       else
         self.bad_transfer
